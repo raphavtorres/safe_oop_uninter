@@ -32,11 +32,12 @@ public class Safe {
                 """);
         // getting user input
         String userInput = scanner.next();
+        double value = 0.0;
         // returning coin based on user choice
         return switch (userInput) {
-            case "1" -> new Euro();
-            case "2" -> new Dollar();
-            case "3" -> new Real();
+            case "1" -> new Euro(value);
+            case "2" -> new Dollar(value);
+            case "3" -> new Real(value);
             default -> null;
         };
     }

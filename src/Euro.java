@@ -1,5 +1,11 @@
 public class Euro extends Coin {
 
+    private double value;
+
+    public Euro(double value) {
+        this.value = value;
+    }
+
     @Override
     public String info() {
         return "Euro - ";
