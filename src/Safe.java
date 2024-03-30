@@ -14,7 +14,16 @@ public class Safe {
     }
 
     public void remove(Coin coin) {
-        this.listCoins.remove(coin);
+        Coin listCoin;
+        // iterating list backwards
+        for (int i = listCoins.size() - 1; i >= 0; i--) {
+            listCoin = listCoins.get(i);
+            // getting coin in list with same value as the one from user input
+            if (coin.getValue() == listCoin.getValue()) {
+                this.listCoins.remove(listCoin);
+                break;
+            }
+        }
     }
 
     public void list() {
@@ -32,4 +41,7 @@ public class Safe {
         System.out.println("Total amount = " + total);
     }
 
+    public ArrayList<Coin> getListCoins() {
+        return listCoins;
+    }
 }

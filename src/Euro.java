@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Euro extends Coin {
 
     public Euro(double value) {

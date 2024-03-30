@@ -9,6 +9,9 @@ public class Menu {
 
         while (!exit) {
             System.out.println("\n=== SAFE ===");
+            System.out.println("by: Raphael Valderrama Torres");
+            System.out.println("RU: 4383905");
+            System.out.println("============");
             System.out.println("""
                 1 - Add coin
                 2 - Remove coin
@@ -17,7 +20,6 @@ public class Menu {
                 0 - Finish""");
 
             String userInput = scanner.next();
-//            System.out.println("user input: " + userInput);
 
             if (userInput.equals("0")) {
                 System.out.println("\n== FINISH ==");
@@ -30,15 +32,25 @@ public class Menu {
                     safe.add(choosedCoin);
                     break;
                 case "2": // remove coin
+                    if(safe.getListCoins().isEmpty()) {
+                        System.out.println("Empty Safe!");
+                        break;
+                    }
                     choosedCoin = chooseCoin();
                     safe.remove(choosedCoin);
                     break;
                 case "3": // list coins
+                    if(safe.getListCoins().isEmpty()) {
+                        System.out.println("Empty Safe!");
+                        break;
+                    }
                     safe.list();
                     break;
                 case "4": // calculate total in R$
                     safe.totalAmountConverted();
                     break;
+                default:
+                    System.out.println("Not a valid option!");
             }
         }
     }
@@ -53,11 +65,9 @@ public class Menu {
 
         // getting user input
         String coinChoice = scanner.next();
-        System.out.println("coin choice: " + coinChoice);
 
         System.out.println("\nEnter value:");
         double value = scanner.nextDouble();
-        System.out.println("value: " + value);
 
         // returning coin based on user choice
         return switch (coinChoice) {

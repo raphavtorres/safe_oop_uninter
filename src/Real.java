@@ -1,8 +1,9 @@
+import java.text.DecimalFormat;
+
 public class Real extends Coin {
 
-    public Real(double value, double value1) {
+    public Real(double value) {
         super(value);
-        this.value = value1;
     }
 
     @Override

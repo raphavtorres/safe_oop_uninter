@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Dollar extends Coin {
 
     public Dollar(double value) {
