@@ -1,7 +1,12 @@
 public abstract class Coin {
 
-    public abstract String info();
+    public double value;
 
-    public abstract double convert(double coinAmount);
+    public Coin(double value) {
+        this.value = value;
+    }
 
+    public abstract String info(); // return: "name - value"
+
+    public abstract double convert();
 }

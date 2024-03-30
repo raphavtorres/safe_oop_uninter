@@ -1,20 +1,17 @@
 public class Dollar extends Coin {
 
-    private double value;
-
     public Dollar(double value) {
-        this.value = value;
+        super(value);
     }
 
     @Override
     public String info() {
-        return "Dollar";
+        return "Dollar - " + this.value;
     }
 
     @Override
-    public double convert(double coinAmount) {
-        double value = Value.DOLLAR.getValue();
-        return coinAmount / value;
+    public double convert() {
+        double exchangeRate = ExchangeRate.DOLLAR.getExchangeRate();
+        return this.value * exchangeRate;
     }
-
 }

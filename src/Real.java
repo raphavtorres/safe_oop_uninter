@@ -1,18 +1,17 @@
 public class Real extends Coin {
 
-    private double value;
-
-    public Real(double value) {
-        this.value = value;
+    public Real(double value, double value1) {
+        super(value);
+        this.value = value1;
     }
 
     @Override
     public String info() {
-        return "Real";
+        return "Real - " + this.value;
     }
 
     @Override
-    public double convert(double coinAmount) {
-        return coinAmount;
+    public double convert() {
+        return this.value;
     }
 }

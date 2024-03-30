@@ -1,19 +1,17 @@
 public class Euro extends Coin {
 
-    private double value;
-
     public Euro(double value) {
-        this.value = value;
+        super(value);
     }
 
     @Override
     public String info() {
-        return "Euro - ";
+        return "Euro - " + this.value;
     }
 
     @Override
-    public double convert(double coinAmount) {
-        double value = Value.EURO.getValue();
-        return coinAmount / value;
+    public double convert() {
+        double exchangeRate = ExchangeRate.EURO.getExchangeRate();
+        return this.value * exchangeRate;
     }
 }

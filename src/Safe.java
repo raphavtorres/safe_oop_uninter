@@ -2,46 +2,34 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Safe {
-    Scanner scanner = new Scanner(System.in);
 
-    private ArrayList<Coin> coins;
+    private final ArrayList<Coin> listCoins;
 
-    public void add() {
-        var coin = this.chooseCoin();
-        this.coins.add(coin);
+    public Safe() {
+        this.listCoins = new ArrayList<>();
     }
 
-    public void remove() {
-        var coin = this.chooseCoin();
-        this.coins.remove(coin);
+    public void add(Coin coin) {
+        this.listCoins.add(coin);
+    }
+
+    public void remove(Coin coin) {
+        this.listCoins.remove(coin);
     }
 
     public void list() {
-        for (Coin coin : this.coins) {
-            System.out.println(coin.info() + " - ");
+        for (Coin coin : this.listCoins) {
+            System.out.println(coin.info());
         }
     }
 
-    private Coin chooseCoin() {
-        // Showing coins optional in terminal
-        System.out.println("""
-                Choose coin:
-                1 - Euro
-                2 - Dollar
-                3 - Real
-                """);
-        // getting user input
-        String userInput = scanner.next();
-        double value = 0.0;
-        // returning coin based on user choice
-        return switch (userInput) {
-            case "1" -> new Euro(value);
-            case "2" -> new Dollar(value);
-            case "3" -> new Real(value);
-            default -> null;
-        };
-    }
+    public void totalAmountConverted() {
+        double total = 0;
 
-    public void totalAmountConverted() {}
+        for (Coin coin : this.listCoins) {
+            total += coin.convert();
+        }
+        System.out.println("Total amount = " + total);
+    }
 
 }
